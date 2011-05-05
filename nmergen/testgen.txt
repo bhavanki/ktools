@@ -1,0 +1,79 @@
+Data properties:
+
+Recording date: 10/27/2010
+Recording time: 17:40:42:994 (corresponds to time 0)
+Study: Eye tracking Fall 2010
+Subject: 201-107
+Recording: 201-107
+Screen resolution: 1280 x 1024
+Coordinate unit: Pixels
+
+
+Timestamp    FixationDuration    AoiIds    AoiNames    StimuliName
+225699    316    0    R    Topic1_high_1290x1024.jpg
+225699    316    0    R    Topic1_high_1290x1024.jpg
+226015    333    0    R    Topic1_high_1290x1024.jpg
+226015    333    0    R    Topic1_high_1290x1024.jpg
+226348    100    0    C    Topic1_high_1290x1024.jpg
+226348    100    0    C    Topic1_high_1290x1024.jpg
+226615    749    0    C    Topic1_high_1290x1024.jpg
+226615    749    0    C    Topic1_high_1290x1024.jpg
+227364    300    0    R    Topic1_high_1290x1024.jpg
+227364    300    0    R    Topic1_high_1290x1024.jpg
+227664    383    0    R    Topic1_high_1290x1024.jpg
+227664    383    0    R    Topic1_high_1290x1024.jpg
+228047    200    0    C    Topic1_high_1290x1024.jpg
+228047    200    0    C    Topic1_high_1290x1024.jpg
+228247    250    0    P    Topic1_high_1290x1024.jpg
+228247    250    0    P    Topic1_high_1290x1024.jpg
+228497    300    0    P    Topic1_high_1290x1024.jpg
+228497    300    0    P    Topic1_high_1290x1024.jpg
+228797    400    0    P    Topic1_high_1290x1024.jpg
+228797    400    0    P    Topic1_high_1290x1024.jpg
+229196    266    0    C    Topic1_high_1290x1024.jpg
+229196    266    0    C    Topic1_high_1290x1024.jpg
+229463    250    0    C    Topic1_high_1290x1024.jpg
+229463    250    0    C    Topic1_high_1290x1024.jpg
+229713    416    0    P    Topic1_high_1290x1024.jpg
+229713    416    0    P    Topic1_high_1290x1024.jpg
+230129    233    0    P    Topic1_high_1290x1024.jpg
+230129    233    0    P    Topic1_high_1290x1024.jpg
+230362    283    0    R    Topic1_high_1290x1024.jpg
+230362    283    0    R    Topic1_high_1290x1024.jpg
+230645    283    0    R    Topic1_high_1290x1024.jpg
+230645    283    0    R    Topic1_high_1290x1024.jpg
+230929    350    0    P    Topic1_high_1290x1024.jpg
+230929    350    0    P    Topic1_high_1290x1024.jpg
+231278    300    0    P    Topic1_high_1290x1024.jpg
+231278    300    0    P    Topic1_high_1290x1024.jpg
+231578    200    0    C    Topic1_high_1290x1024.jpg
+231578    200    0    C    Topic1_high_1290x1024.jpg
+231778    366    0    C    Topic1_high_1290x1024.jpg
+231778    366    0    C    Topic1_high_1290x1024.jpg
+232144    100    0    C    Topic1_high_1290x1024.jpg
+232144    100    0    C    Topic1_high_1290x1024.jpg
+232394    183    0    0    Topic1_high_1290x1024.jpg
+232777    317    0    P    Topic1_high_1290x1024.jpg
+232777    317    0    P    Topic1_high_1290x1024.jpg
+233094    416    0    R    Topic1_high_1290x1024.jpg
+233094    416    0    R    Topic1_high_1290x1024.jpg
+233510    300    0    R    Topic1_high_1290x1024.jpg
+233510    300    0    R    Topic1_high_1290x1024.jpg
+233810    966    0    P    Topic1_high_1290x1024.jpg
+233810    966    0    P    Topic1_high_1290x1024.jpg
+234776    167    0    P    Topic1_high_1290x1024.jpg
+234776    167    0    2    Topic1_high_1290x1024.jpg
+234942    266    0    C    Topic1_high_1290x1024.jpg
+234942    266    0    C    Topic1_high_1290x1024.jpg
+235209    350    0    C    Topic1_high_1290x1024.jpg
+235209    350    0    C    Topic1_high_1290x1024.jpg
+236008    1716    0    C    Topic1_high_1290x1024.jpg
+236008    1716    0    C    Topic1_high_1290x1024.jpg
+237724    183    0    C    Topic1_high_1290x1024.jpg
+237724    183    0    C    Topic1_high_1290x1024.jpg
+237907    183    0    C    Topic1_high_1290x1024.jpg
+237907    183    0    C    Topic1_high_1290x1024.jpg
+238090    316    0    P    Topic1_high_1290x1024.jpg
+238090    316    0    P    Topic1_high_1290x1024.jpg
+238407    383    0    P    Topic1_high_1290x1024.jpg
+238407    383    0    P    Topic1_high_1290x1024.jpg
