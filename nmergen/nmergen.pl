@@ -10,10 +10,10 @@ while (<STDIN>) {
   if (/jpg/) {
     @parts = split;
     my $aoi = $parts[3];
-    if ($parts[3] =~ /_/) {
-      print FH substr ($aoi, -1)
-    } else {
+    if ($parts[3] eq "Content") {
       print FH '0';
+    } else {
+      print FH $aoi;
     }
   }
 }
