@@ -18,6 +18,9 @@ BADACABD
 CBABCADA
 DACABACB
 
+Each line of the input file may be prefixed by a string followed by a
+colon. Such a prefix is preserved in the output.
+
 The token length must be an integer factor of the length of each string. For
 example, if a string is eight characters, you can use token lengths of 1, 2,
 or 4.
