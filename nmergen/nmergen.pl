@@ -5,7 +5,6 @@ if (scalar @ARGV > 0 and $ARGV[0] eq "-n") {
 } else {
   $skipNumbers = 0;
 }
-print $skipNumbers;
 
 while (<STDIN>) {
   if (/^Subject:/) {
