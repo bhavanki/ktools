@@ -23,3 +23,12 @@ Subject: 123-456
 232394    183    0    1    Topic1_high_1290x1024.jpg
 
 the string "123-456:RRC1" is generated.
+
+You can pass the -n option to nmergen.pl. When that option is passed,
+the output does not include any AOI IDs in the range 0 - 9 (or the ID
+"Content" which is converted to 0). Given the above short set of
+fixations, calling:
+
+$ ./nmergen.pl -n < <input-filename>
+
+results in the string "123-456:RRC".

@@ -1,5 +1,12 @@
 #!/usr/bin/perl
 
+if (scalar @ARGV > 0 and $ARGV[0] eq "-n") {
+  $skipNumbers = 1;
+} else {
+  $skipNumbers = 0;
+}
+print $skipNumbers;
+
 while (<STDIN>) {
   if (/^Subject:/) {
     @parts = split;
@@ -10,9 +17,13 @@ while (<STDIN>) {
     @parts = split;
     my $aoi = $parts[3];
     if ($parts[3] eq "Content") {
-      print '0';
+      if (not $skipNumbers) {
+	print '0';
+      }
     } else {
-      print $aoi;
+      if (not $skipNumbers or $parts[3] !~ /[0123456789]/) {
+	print $aoi;
+      }
     }
   }
 }
