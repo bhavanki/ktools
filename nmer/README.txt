@@ -21,32 +21,23 @@ DACABACB
 Each line of the input file may be prefixed by a string followed by a
 colon. Such a prefix is preserved in the output.
 
-The token length must be an integer factor of the length of each string. For
-example, if a string is eight characters, you can use token lengths of 1, 2,
-or 4.
+The token length must be an integer less than the length of each string. For
+example, if a string is eight characters, you can use token lengths up
+to and including 8.
 
-$ java NMer test1.txt 1
-AB      4
-AC      5
-AD      3
-BA      4
-BC      1
-BD      1
-CA      4
-CB      2
-DA      4
-$ java NMer test1.txt 2
-ABAC    1
-ABCA    1
-ACAD    1
-ADAC    1
-BACB    1
-BADA    1
-CABA    1
-CABD    1
-CADA    1
-CBAB    1
-DACA    2
+$ java NMer 1 < test1_prefix.txt
+num     A       B       C       D
+444-888 3       2       2       1
+353-535 3       2       2       1
+222-222 3       2       1       2
+123-456 4       1       2       1
+
+$ java NMer 2 < test1_prefix.txt
+num     AB      AC      AD      BA      BC      BD      CA      CB      DA
+444-888 1       2       0       1       0       0       1       1       1
+353-535 1       0       1       1       1       0       1       1       1
+222-222 1       1       1       1       0       1       1       0       1
+123-456 1       2       1       1       0       0       1       0	1
 
 To save the output to a file, use the redirection operator.
 

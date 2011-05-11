@@ -55,23 +55,20 @@ public class NMer {
 		subjectID = lparts[0];
 		line = lparts[1];
 	    }
-	    if (line.length() % tokenLen != 0) {
+	    if (line.length() < tokenLen) {
 		throw new IllegalArgumentException
 		    ("Line " + lineNo + " has " + line.length() +
-		     " characters, not divisible by token length " + tokenLen);
+		     " characters, less than token length " + tokenLen);
 	    }
 	    Map<String,IntHolder> lineTab =
 		new java.util.HashMap<String,IntHolder>();
 	    tab.put (subjectID, lineTab);
-	    for (int i = 0; i < line.length() - tokenLen; i += tokenLen) {
+	    for (int i = 0; i < line.length() - tokenLen + 1; i++) {
 		String token = line.substring (i, i + tokenLen);
-		String nextToken = line.substring (i + tokenLen,
-						   i + (2 * tokenLen));
-		String transition = token + nextToken;
-		IntHolder ih = lineTab.get (transition);
+		IntHolder ih = lineTab.get (token);
 		if (ih == null) {
 		    ih = new IntHolder();
-		    lineTab.put (transition, ih);
+		    lineTab.put (token, ih);
 		}
 		ih.incr();
 	    }
