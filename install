@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+    echo Please specify an installation directory.
+    exit 1
+fi
+DIR=$1
+if [[ -d $DIR ]]; then
+    echo $DIR already exists.
+    exit 2
+fi
+
+mkdir $DIR
+cp crank/crank $DIR
+cp nmergen/nmergen.pl $DIR
+cp nmeran/nmeran.pl $DIR
+cp ffp/ffp.pl $DIR
+cp lev/*.class $DIR
+cp nmer/*.class $DIR
+
+echo Installation complete to $DIR.
