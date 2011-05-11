@@ -1,0 +1,99 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+    echo Please supply a directory full of eye tracking session files.
+    exit 1
+fi
+DIR=$1
+if [[ ! -d $DIR ]]; then
+    echo Directory $DIR does not exist.
+    exit 1
+fi
+
+if [[ -z "$2" ]]; then
+    echo Please supply a theoretical string for finding Levenshtein distances.
+    exit 2
+fi
+TS=$2
+
+cd $DIR
+WKDIR=working
+WKDIRN=working_n
+OUTPUT=output
+rm -rf $WKDIR && mkdir -p $WKDIR
+rm -rf $WKDIRN && mkdir -p $WKDIRN
+rm -rf $OUTPUT && mkdir -p $OUTPUT
+
+for f in *
+do
+    if [[ "$f" == "$WKDIR" ]]; then
+	continue
+    fi
+    if [[ "$f" == "$WKDIRN" ]]; then
+	continue
+    fi
+    if [[ "$f" == "$OUTPUT" ]]; then
+	continue
+    fi
+    echo Processing $f
+    echo Generating nmer file ...
+    ../nmergen.pl < $f > $WKDIR/$f.nmer
+    echo ... written to $WKDIR/$f.nmer.
+    echo Generating nmer file, skipping numeric AOI IDs ...
+    ../nmergen.pl -n < $f > $WKDIRN/$f.nmer
+    echo ... written to $WKDIRN/$f.nmer.
+done
+
+echo Concatenating nmer files ...
+cd $WKDIR
+rm -f all.nmer
+for f in *.nmer
+do
+    cat $f >> all.nmer
+done
+cd ../$WKDIRN
+rm -f all.nmer
+for f in *.nmer
+do
+    cat $f >> all.nmer
+done
+cd ..
+echo ... concatenated to $WKDIR/all.nmer and $WKDIRN/all.nmer.
+
+echo Analyzing ...
+cd $WKDIR
+../../nmeran.pl < all.nmer > ../$OUTPUT/all.nman
+cd ../$WKDIRN
+../../nmeran.pl < all.nmer > ../$OUTPUT/all_n.nman
+cd ..
+echo ... analysis written to $OUTPUT/all.nman and $OUTPUT/all_n.nman.
+
+echo Finding first fixation patterns ...
+cd $WKDIR
+../../ffp.pl < all.nmer > all.ffp
+cd ../$WKDIRN
+../../ffp.pl < all.nmer > all.ffp
+cd ..
+echo ... patterns written to $WKDIR/all.ffp and $WKDIRN/all.ffp.
+
+echo Determining Levenshtein distances in first fixation patterns ...
+cd $WKDIR
+java -classpath ../.. Lev "$2" < all.ffp > ../$OUTPUT/all.lev
+cd ../$WKDIRN
+java -classpath ../.. Lev "$2" < all.ffp > ../$OUTPUT/all_n.lev
+cd ..
+echo ... distances written to $OUTPUT/all.lev and $OUTPUT/all_n.lev.
+
+for n in 1 2 3 4
+do
+    echo Finding transitions, token length $n ...
+    cd $WKDIR
+    java -classpath ../.. NMer $n < all.nmer > ../$OUTPUT/all.txn${n}
+    cd ../$WKDIRN
+    java -classpath ../.. NMer $n < all.nmer > ../$OUTPUT/all_n.txn${n}
+    cd ..
+    echo ... transitions written to $OUTPUT/all.txn${n} and $OUTPUT/all_n.txn${n}.
+done
+
+echo
+echo Crank complete.
