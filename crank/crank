@@ -16,6 +16,7 @@ if [[ -z "$2" ]]; then
 fi
 TS=$2
 
+TOOLDIR=`pwd`
 cd $DIR
 WKDIR=working
 WKDIRN=working_n
@@ -37,10 +38,10 @@ do
     fi
     echo Processing $f
     echo Generating nmer file ...
-    ../nmergen.pl < $f > $WKDIR/$f.nmer
+    "$TOOLDIR"/nmergen.pl < "$f" > $WKDIR/"$f.nmer"
     echo ... written to $WKDIR/$f.nmer.
     echo Generating nmer file, skipping numeric AOI IDs ...
-    ../nmergen.pl -n < $f > $WKDIRN/$f.nmer
+    "$TOOLDIR"/nmergen.pl -n < "$f" > $WKDIRN/"$f.nmer"
     echo ... written to $WKDIRN/$f.nmer.
 done
 
@@ -49,38 +50,38 @@ cd $WKDIR
 rm -f all.nmer
 for f in *.nmer
 do
-    cat $f >> all.nmer
+    cat "$f" >> all.nmer
 done
 cd ../$WKDIRN
 rm -f all.nmer
 for f in *.nmer
 do
-    cat $f >> all.nmer
+    cat "$f" >> all.nmer
 done
 cd ..
 echo ... concatenated to $WKDIR/all.nmer and $WKDIRN/all.nmer.
 
 echo Analyzing ...
 cd $WKDIR
-../../nmeran.pl < all.nmer > ../$OUTPUT/all.nman
+"$TOOLDIR"/nmeran.pl < all.nmer > ../$OUTPUT/all.nman
 cd ../$WKDIRN
-../../nmeran.pl < all.nmer > ../$OUTPUT/all_n.nman
+"$TOOLDIR"/nmeran.pl < all.nmer > ../$OUTPUT/all_n.nman
 cd ..
 echo ... analysis written to $OUTPUT/all.nman and $OUTPUT/all_n.nman.
 
 echo Finding first fixation patterns ...
 cd $WKDIR
-../../ffp.pl < all.nmer > all.ffp
+"$TOOLDIR"/ffp.pl < all.nmer > all.ffp
 cd ../$WKDIRN
-../../ffp.pl < all.nmer > all.ffp
+"$TOOLDIR"/ffp.pl < all.nmer > all.ffp
 cd ..
 echo ... patterns written to $WKDIR/all.ffp and $WKDIRN/all.ffp.
 
 echo Determining Levenshtein distances in first fixation patterns ...
 cd $WKDIR
-java -classpath ../.. Lev "$2" < all.ffp > ../$OUTPUT/all.lev
+java -classpath "$TOOLDIR" Lev "$2" < all.ffp > ../$OUTPUT/all.lev
 cd ../$WKDIRN
-java -classpath ../.. Lev "$2" < all.ffp > ../$OUTPUT/all_n.lev
+java -classpath "$TOOLDIR" Lev "$2" < all.ffp > ../$OUTPUT/all_n.lev
 cd ..
 echo ... distances written to $OUTPUT/all.lev and $OUTPUT/all_n.lev.
 
@@ -88,9 +89,9 @@ for n in 1 2 3 4
 do
     echo Finding transitions, token length $n ...
     cd $WKDIR
-    java -classpath ../.. NMer $n < all.nmer > ../$OUTPUT/all.txn${n}
+    java -classpath "$TOOLDIR" NMer $n < all.nmer > ../$OUTPUT/all.txn${n}
     cd ../$WKDIRN
-    java -classpath ../.. NMer $n < all.nmer > ../$OUTPUT/all_n.txn${n}
+    java -classpath "$TOOLDIR" NMer $n < all.nmer > ../$OUTPUT/all_n.txn${n}
     cd ..
     echo ... transitions written to $OUTPUT/all.txn${n} and $OUTPUT/all_n.txn${n}.
 done
