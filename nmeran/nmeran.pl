@@ -57,7 +57,7 @@ while (<STDIN>) {
 $header = "num\tlen\tlen0\t";
 @seenCharsList = sort keys %seenChars;
 foreach $ch (@seenCharsList) {
-  $header .= "${ch}c\t${ch}\%\t${ch}0%\t${ch}r\t";
+  $header .= "${ch}c\t${ch}\p\t${ch}0p\t${ch}r\t";
 }
 $header .= "ffp";
 print "$header\n";

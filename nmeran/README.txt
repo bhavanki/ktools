@@ -10,11 +10,12 @@ The output file contains a table with a header row and one line for each line in
 
 The next two columns are the nmer string length ("len") and the nmer string length not including any zeroes ("len0").
 
-The next set of columns provide data for each AOI ID found in the nmer string. For some ID "X", the following three columns are provided:
+The next set of columns provide data for each AOI ID found in the nmer string. For some ID "X", the following four columns are provided:
 
 * Xc = the count for "X" in the nmer string
-* X% = the percentage of the nmer string occupied by "X"
-* X% = the percentage of the nmer string, not including any zeroes, occupied by "X"
+* Xp = the percentage of the nmer string occupied by "X"
+* X0p = the percentage of the nmer string, not including any zeroes, occupied by "X"
+* Xr = the number of runs of "X" in the nmer string
 
 The sets of AOI ID columns are sorted alphanumerically, but since the variety of IDs can change for each input file, the number of columns varies as well.
 
