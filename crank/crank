@@ -79,9 +79,13 @@ echo ... patterns written to $WKDIR/all.ffp and $WKDIRN/all.ffp.
 
 echo Determining Levenshtein distances in first fixation patterns ...
 cd $WKDIR
-java -classpath "$TOOLDIR" Lev "$2" < all.ffp > ../$OUTPUT/all.lev
+BASESTR=$2
+echo - with numeric IDs, base string is $BASESTR
+java -classpath "$TOOLDIR" Lev $BASESTR < all.ffp > ../$OUTPUT/all.lev
 cd ../$WKDIRN
-java -classpath "$TOOLDIR" Lev "$2" < all.ffp > ../$OUTPUT/all_n.lev
+BASESTR=${2//[0-9]/}
+echo - without numeric IDs, base string is $BASESTR
+java -classpath "$TOOLDIR" Lev $BASESTR < all.ffp > ../$OUTPUT/all_n.lev
 cd ..
 echo ... distances written to $OUTPUT/all.lev and $OUTPUT/all_n.lev.
 
