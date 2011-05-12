@@ -15,7 +15,13 @@ public class NMer {
 	new java.util.HashMap<String,Map<String,IntHolder>>();
     int tokenLen;
 
-    public NMer (int tl) { tokenLen = tl; }
+    public NMer (int tl) {
+	if (tl <= 0) {
+	    throw new IllegalArgumentException
+		("Token length must be positive");
+	}
+	tokenLen = tl;
+    }
 
     public void processStdin() throws IOException {
 	InputStreamReader isr = null;
@@ -54,11 +60,6 @@ public class NMer {
 		String[] lparts = line.split (":", 2);
 		subjectID = lparts[0];
 		line = lparts[1];
-	    }
-	    if (line.length() < tokenLen) {
-		throw new IllegalArgumentException
-		    ("Line " + lineNo + " has " + line.length() +
-		     " characters, less than token length " + tokenLen);
 	    }
 	    Map<String,IntHolder> lineTab =
 		new java.util.HashMap<String,IntHolder>();
