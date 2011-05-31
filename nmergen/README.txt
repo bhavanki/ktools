@@ -9,7 +9,8 @@ session for a single subject and topic.
 
 The output file itself will contain the subject ID, followed by a
 colon, followed by a single string of characters, one for each
-fixation recorded in the input file.
+fixation recorded in the input file. Duplicate fixations are
+eliminated automatically.
 
 The AOI ID is emitted as is for that fixation, except for the ID
 "Content", which is converted to "0". For example, with this short set

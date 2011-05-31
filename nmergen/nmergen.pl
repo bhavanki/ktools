@@ -6,6 +6,7 @@ if (scalar @ARGV > 0 and $ARGV[0] eq "-n") {
   $skipNumbers = 0;
 }
 
+$lastts = "whatever";
 while (<STDIN>) {
   if (/^Subject:/) {
     @parts = split;
@@ -14,6 +15,9 @@ while (<STDIN>) {
   }
   if (/jpg/) {
     @parts = split;
+    my $ts = $parts[0];
+    next if $ts eq $lastts;
+    $lastts = $ts;
     my $aoi = $parts[3];
     if ($parts[3] eq "Content") {
       if (not $skipNumbers) {
