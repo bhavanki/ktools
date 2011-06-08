@@ -61,8 +61,8 @@ Timestamp    FixationDuration    AoiIds    AoiNames    StimuliName
 233510    300    0    R    Topic1_high_1290x1024.jpg
 233810    966    0    P    Topic1_high_1290x1024.jpg
 233810    966    0    P    Topic1_high_1290x1024.jpg
-234776    167    0    P    Topic1_high_1290x1024.jpg
-234776    167    0    2    Topic1_high_1290x1024.jpg
+234776    24    0    P    Topic1_high_1290x1024.jpg
+234800    142    0    2    Topic1_high_1290x1024.jpg
 234942    266    0    C    Topic1_high_1290x1024.jpg
 234942    266    0    C    Topic1_high_1290x1024.jpg
 235209    350    0    C    Topic1_high_1290x1024.jpg
