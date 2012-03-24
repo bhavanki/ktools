@@ -17,5 +17,9 @@ cp nmeran/nmeran.pl $DIR
 cp ffp/ffp.pl $DIR
 cp lev/*.class $DIR
 cp nmer/*.class $DIR
+cp finalfix/finalfix.pl $DIR
+cp isolate/isolate.pl $DIR
+cp sequential/sequential.pl $DIR
+cp viewtimes/viewtimes.pl $DIR
 
 echo Installation complete to $DIR.
