@@ -1,0 +1,2 @@
+num	AB	AC	BA	CA	CB	DA
+none	1	2	1	1	1	1
