@@ -20,3 +20,6 @@ information.
 Before using ktools, install it!
 
 $ ./install /some/directory
+
+ktools is licensed under the GNU General Public License version 3. See
+COPYING for a copy of the license.
